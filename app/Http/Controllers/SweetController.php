@@ -13,7 +13,6 @@ class SweetController extends Controller {
     
     public function getIndex(){
         $blogs = DB::table('blogs')->orderBy('id','desc')->get();
-        //$usernames = DB::table('users')->select('username')->get();
         return view('index')->with('blogs', $blogs);
     }
     
