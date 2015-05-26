@@ -15,12 +15,16 @@
             <a href = '/login'>Login</a>
         @endif
         <p></p>
-        @foreach ($blogs as $blog)
-            <div id=post>
-                <h2>{{$blog->subject}}</h2>
-                <p>{{$blog->content}}</p>
-            </div>
-            <p></p>
-        @endforeach        
+        @if (!$blogs)
+            <p>No Blogs Yet! Sign up today!</p>
+        @elseif
+            @foreach ($blogs as $blog)
+                <div id=post>
+                    <h2>{{$blog->subject}}</h2>
+                    <p>{{$blog->content}}</p>
+                </div>
+                <p></p>
+            @endforeach
+        @endif
     </div>
 @stop
